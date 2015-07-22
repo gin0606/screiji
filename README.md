@@ -1,6 +1,6 @@
-# Screiji
+# Screiji = JSON Schema + 例示
 
-[![Build Status](https://travis-ci.org/gin0606/screiji.svg)](https://travis-ci.org/gin0606/screiji)
+[![Gem Version](https://badge.fury.io/rb/screiji.svg)](http://badge.fury.io/rb/screiji) [![Build Status](https://travis-ci.org/gin0606/screiji.svg)](https://travis-ci.org/gin0606/screiji)
 
 ## Installation
 
