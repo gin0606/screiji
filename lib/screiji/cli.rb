@@ -7,8 +7,7 @@ module Screiji
       def reiji(file)
         example = Screiji.example(file)
         case example
-        when Array
-        when Hash
+        when Array, Hash
           puts JSON.pretty_generate(example)
         else
           puts example
