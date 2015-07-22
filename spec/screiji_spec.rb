@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Screiji do
   it 'has a version number' do
-    expect(Screiji::VERSION).not_to be nil
+    expect(Screiji::VERSION).not_to be_nil
   end
 
   describe 'primitive type' do
@@ -43,7 +43,7 @@ describe Screiji do
         'example' => nil
       }
       example = Screiji.example schema
-      expect(example).to eq nil
+      expect(example).to be_nil
     end
 
     it 'return example string' do
