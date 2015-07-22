@@ -1,8 +1,9 @@
-
+require 'json'
 
 module Screiji
   class Root
     def initialize(schema)
+      schema = JSON.parse(File.read(schema)) if schema.is_a? String
       @schema = schema
     end
 
