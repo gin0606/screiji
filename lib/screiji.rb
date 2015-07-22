@@ -1,5 +1,9 @@
 require "screiji/version"
+require "screiji/root"
 
 module Screiji
-  # Your code goes here...
+  extend self
+  def example(schema)
+    Root.new(schema).to_schema
+  end
 end
