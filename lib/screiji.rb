@@ -1,5 +1,6 @@
 require "screiji/version"
 require "screiji/root"
+require "screiji/cli"
 
 module Screiji
   extend self
