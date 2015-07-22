@@ -9,7 +9,7 @@ describe Screiji::CLI do
       "type": "string"
     }
     JSON
-    Screiji::CLI.reiji(JSON.parse(json))
+    expect { Screiji::CLI.reiji(JSON.parse(json)) }.to output.to_stdout
   end
 
   it 'dont raise error by generate object' do
@@ -24,6 +24,6 @@ describe Screiji::CLI do
       }
     }
     JSON
-    Screiji::CLI.reiji(JSON.parse(json))
+    expect { Screiji::CLI.reiji(JSON.parse(json)) }.to output.to_stdout
   end
 end
