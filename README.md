@@ -1,8 +1,6 @@
 # Screiji
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/screiji`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+[![Build Status](https://travis-ci.org/gin0606/screiji.svg)](https://travis-ci.org/gin0606/screiji)
 
 ## Installation
 
@@ -22,7 +20,24 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```rb
+require 'json'
+
+json_schema = <<-JSON
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "foo": {
+      "type": "string",
+      "example": "foo string"
+    }
+  }
+}
+JSON
+
+puts Screiji.example(JSON.parse(json_schema)) # => {"foo"=>"foo string"}
+```
 
 ## Contributing
 1. Fork it ( https://github.com/[my-github-username]/screiji/fork )
