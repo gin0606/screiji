@@ -5,7 +5,14 @@ module Screiji
   class CLI
     class << self
       def reiji(file)
-        puts JSON.pretty_generate(Screiji.example(file))
+        example = Screiji.example(file)
+        case example
+        when Array
+        when Hash
+          puts JSON.pretty_generate(example)
+        else
+          puts example
+        end
       end
     end
   end

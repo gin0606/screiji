@@ -1,0 +1,29 @@
+require 'spec_helper'
+require 'json'
+
+describe Screiji::CLI do
+  it 'dont raise error by generate string example' do
+    json = <<-JSON
+    {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "type": "string"
+    }
+    JSON
+    Screiji::CLI.reiji(JSON.parse(json))
+  end
+
+  it 'dont raise error by generate object' do
+    json = <<-JSON
+    {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "type": "object",
+      "properties": {
+        "p": {
+          "type": "string"
+        }
+      }
+    }
+    JSON
+    Screiji::CLI.reiji(JSON.parse(json))
+  end
+end
