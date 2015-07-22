@@ -84,6 +84,37 @@ describe Screiji do
       expect(example['string_property']).to eq 'foo'
       expect(example['object_property']['p']).to eq 'object include object'
     end
+
+    it 'return adequate value if schema dont have example' do
+      schema = {
+        '$schema' => 'http://json-schema.org/draft-04/schema#',
+        'type' => 'object',
+        'properties' => {
+          'boolean_property' => {
+            'type' => 'boolean',
+          },
+          'integer_property' => {
+            'type' => 'integer',
+          },
+          'number_property' => {
+            'type' => 'number',
+          },
+          'null_property' => {
+            'type' => 'null',
+          },
+          'string_property' => {
+            'type' => 'string',
+          },
+        }
+      }
+      example = Screiji.example schema
+      expect(example).to be_a Hash
+      expect([true, false]).to include example['boolean_property']
+      expect(example['integer_property']).to be_a Integer
+      expect(example['number_property']).to be_a Integer
+      expect(example['null_property']).to be_a NilClass
+      expect(example['string_property']).to be_a String
+    end
   end
 
   describe 'array items declaration by hash' do

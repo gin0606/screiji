@@ -17,7 +17,7 @@ module Screiji
       when 'array'
         parse_array(schema)
       else
-        schema['example']
+        schema.has_key?('example') ? schema['example'] : example(schema)
       end
     end
 
@@ -36,6 +36,23 @@ module Screiji
         [parse(schema['items'])]
       else
         raise '`items` can include Array or Hash.'
+      end
+    end
+
+    def example(schema)
+      case schema['type']
+      when 'boolean'
+        [true, false].sample
+      when 'integer'
+        Random.rand(1 .. 1000)
+      when 'number'
+        Random.rand(-1000 .. 1000)
+      when 'null'
+        nil
+      when 'string'
+        rand(36**5).to_s(36)
+      else
+        raise "cant generate example for Array and Object"
       end
     end
   end
