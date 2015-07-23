@@ -43,15 +43,15 @@ module Screiji
     def example(schema)
       case schema['type']
       when 'boolean'
-        [true, false].sample
+        true
       when 'integer'
-        Random.rand(1 .. 1000)
+        1234
       when 'number'
-        Random.rand(-1000 .. 1000)
+        0.1234
       when 'null'
         nil
       when 'string'
-        rand(36**5).to_s(36)
+        'example'
       else
         raise "cant generate example for Array and Object"
       end

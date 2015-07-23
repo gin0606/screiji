@@ -110,10 +110,10 @@ describe Screiji do
       example = Screiji.example schema
       expect(example).to be_a Hash
       expect([true, false]).to include example['boolean_property']
-      expect(example['integer_property']).to be_a Integer
-      expect(example['number_property']).to be_a Integer
-      expect(example['null_property']).to be_a NilClass
-      expect(example['string_property']).to be_a String
+      expect(example['integer_property']).to eq 1234
+      expect(example['number_property']).to eq 0.1234
+      expect(example['null_property']).to be_nil
+      expect(example['string_property']).to eq 'example'
     end
   end
 
