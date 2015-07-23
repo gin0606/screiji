@@ -51,9 +51,28 @@ module Screiji
       when 'null'
         nil
       when 'string'
-        'example'
+        string_example(schema)
       else
         raise "cant generate example for Array and Object"
+      end
+    end
+
+    def string_example(schema)
+      case schema['format']
+      when 'date-time'
+        '2002-10-02T15:00:00Z'
+      when 'email'
+        'mail@example.org'
+      when 'hostname'
+        'example.com'
+      when 'ipv4'
+        '192.0.2.0'
+      when 'ipv6'
+        '2001:0db8:bd05:01d2:288a:1fc0:0001:10ee'
+      when 'uri'
+        'http://example.com'
+      else
+        'example'
       end
     end
   end

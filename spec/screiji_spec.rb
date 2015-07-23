@@ -115,6 +115,46 @@ describe Screiji do
       expect(example['null_property']).to be_nil
       expect(example['string_property']).to eq 'example'
     end
+
+    it 'return fixed value with format' do
+      schema = {
+        '$schema' => 'http://json-schema.org/draft-04/schema#',
+        'type' => 'object',
+        'properties' => {
+          'datetime_property' => {
+            'type' => 'string',
+            'format' => 'date-time'
+          },
+          'email_property' => {
+            'type' => 'string',
+            'format' => 'email'
+          },
+          'hostname_property' => {
+            'type' => 'string',
+            'format' => 'hostname'
+          },
+          'ipv4_property' => {
+            'type' => 'string',
+            'format' => 'ipv4'
+          },
+          'ipv6_property' => {
+            'type' => 'string',
+            'format' => 'ipv6'
+          },
+          'uri_property' => {
+            'type' => 'string',
+            'format' => 'uri'
+          },
+        }
+      }
+      example = Screiji.example schema
+      expect(example['datetime_property']).to eq '2002-10-02T15:00:00Z'
+      expect(example['email_property']).to eq 'mail@example.org'
+      expect(example['hostname_property']).to eq 'example.com'
+      expect(example['ipv4_property']).to eq '192.0.2.0'
+      expect(example['ipv6_property']).to eq '2001:0db8:bd05:01d2:288a:1fc0:0001:10ee'
+      expect(example['uri_property']).to eq 'http://example.com'
+    end
   end
 
   describe 'array items declaration by hash' do
