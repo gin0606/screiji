@@ -2,6 +2,10 @@
 
 [![Gem Version](https://badge.fury.io/rb/screiji.svg)](http://badge.fury.io/rb/screiji) [![Build Status](https://travis-ci.org/gin0606/screiji.svg)](https://travis-ci.org/gin0606/screiji)
 
+"例示" means "example".
+
+Screiji generate JSON that is conforming to specified JSON Schema.
+
 ## Installation
 
 Add this line to your application's Gemfile:
