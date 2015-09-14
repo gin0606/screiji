@@ -155,6 +155,21 @@ describe Screiji do
       expect(example['ipv6_property']).to eq '2001:0db8:bd05:01d2:288a:1fc0:0001:10ee'
       expect(example['uri_property']).to eq 'http://example.com'
     end
+
+    context 'when schema do not specify type' do
+      let(:schema) do
+        {
+          '$schema' => 'http://json-schema.org/draft-04/schema#',
+          'properties' => {
+            'integer_property' => {
+              'type' => 'integer',
+            },
+          }
+        }
+      end
+      subject { Screiji.example schema }
+      it { is_expected.to be_a Hash }
+    end
   end
 
   describe 'array items declaration by hash' do

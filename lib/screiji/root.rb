@@ -12,6 +12,7 @@ module Screiji
     end
 
     def parse(schema)
+      schema['type'] = 'object' unless schema.has_key?('type')
       case schema['type']
       when 'object'
         parse_object(schema)
